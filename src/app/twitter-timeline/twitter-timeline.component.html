@@ -1,0 +1,35 @@
+<div>
+  Search By
+    <select [(ngModel)]="searchBy">
+        <option *ngFor="let x of searchByID" [value]="x">{{x}}</option>
+    </select>
+Enter search element
+<input (keyup)="onKey()" type="text" [(ngModel)]="searchEle"/> <br/>
+</div>
+
+<h1>Tweeter Timeline</h1>
+<div *ngIf="undefined === myTimeline ">Loading...</div>
+<div *ngIf="undefined !== myTimeline ">
+  <div class ="card">
+      <table border=2>
+        <tr>
+          <th>Full Text</th>
+          <th>Created at</th>
+          <th>User name</th>
+          <th>Screen Name</th>
+          <th>Location</th>
+          <th>Description</th>
+        </tr>
+   <tr *ngFor="let tweets of myTimeline.data">
+
+      <td>{{tweets.full_text}}</td>
+      <td><p>{{tweets.created_at}}</p></td>
+      <td><p>{{tweets.user.name}}</p></td>
+      <td><p>{{tweets.user.screen_name}}</p></td>
+      <td><p>{{tweets.user.location}}</p></td>
+      <td><p>{{tweets.user.description}}</p></td>
+
+    </tr>
+  </table>
+  </div>
+</div>

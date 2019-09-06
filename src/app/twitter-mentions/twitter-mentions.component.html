@@ -1,0 +1,25 @@
+<p>twitter-mentions works!</p>
+<h1>Tweeter Mentions</h1>
+<div *ngIf="undefined === myMentions">Loading...</div>
+<div *ngIf="undefined !== myMentions">
+  <div class ="card">
+      <table border=2>
+          <tr>
+            <th>Full Text</th>
+            <th>Created at</th>
+            <th>User name</th>
+            <th>Screen Name</th>
+            <th>Location</th>
+            <th>Description</th>
+          </tr>
+    <tr *ngFor="let tweets of myMentions.data">
+      <td>{{tweets.full_text}}</td>
+      <td>{{tweets.created_at}}</td>
+      <td>{{tweets.user.name}}</td>
+      <td>{{tweets.user.screen_name}}</td>
+      <td>{{tweets.user.location}}</td>
+      <td>{{tweets.user.description}}</td>
+    </tr>
+    </table>
+  </div>
+</div>
